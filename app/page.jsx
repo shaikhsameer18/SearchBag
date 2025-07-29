@@ -12,6 +12,10 @@ const Banner = dynamic(() => import("@/components/Banner"), {
   loading: () => <div className="h-64 w-full animate-pulse bg-gray-200 rounded-xl mt-8"></div>,
 });
 
+const SearchBags = dynamic(() => import("@/components/InstagramReels"), {
+  loading: () => <div className="h-[500px] w-full animate-pulse bg-gray-200 rounded-xl mt-8"></div>,
+});
+
 const Home = () => {
   return (
     <div className="min-h-screen bg-stone-50">
@@ -22,6 +26,9 @@ const Home = () => {
         </Suspense>
         <Suspense fallback={<div className="h-64 w-full animate-pulse bg-gray-200 rounded-xl mt-8"></div>}>
           <Banner />
+        </Suspense>
+        <Suspense fallback={<div className="h-[500px] w-full animate-pulse bg-gray-200 rounded-xl mt-8"></div>}>
+          <SearchBags />
         </Suspense>
       </div>
     </div>

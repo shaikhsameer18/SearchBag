@@ -234,9 +234,9 @@ const ContactPage = () => {
                       <h3 className="text-base sm:text-lg font-heading font-semibold text-stone-900 mb-0.5 sm:mb-1">
                         Phone
                       </h3>
-                      <p className="text-sm sm:text-base text-stone-600 font-body">
+                      <a href="tel:+918828081163" className="text-sm sm:text-base text-stone-600 hover:text-teal-600 transition-colors duration-200 font-body">
                         +91 88280 81163
-                      </p>
+                      </a>
                     </div>
                   </div>
 
@@ -261,9 +261,9 @@ const ContactPage = () => {
                       <h3 className="text-base sm:text-lg font-heading font-semibold text-stone-900 mb-0.5 sm:mb-1">
                         Email
                       </h3>
-                      <p className="text-sm sm:text-base text-stone-600 font-body">
+                      <a href="mailto:searchbags789@gmail.com" className="text-sm sm:text-base text-stone-600 hover:text-teal-600 transition-colors duration-200 font-body">
                         searchbags789@gmail.com
-                      </p>
+                      </a>
                     </div>
                   </div>
                 </div>

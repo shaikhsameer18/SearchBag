@@ -1,13 +1,21 @@
 import React from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const Banner = () => {
   const router = useRouter();
 
   return (
-    <div className="bg-gradient-to-r from-stone-50 to-white py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-12 border-b border-gray-200 shadow-soft">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
+    <div className="relative bg-gradient-to-r from-teal-50 to-stone-50 py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 border-b border-gray-200 shadow-lg rounded-2xl overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden opacity-10">
+        <div className="absolute -top-24 -left-24 w-64 h-64 rounded-full bg-teal-400 blur-3xl"></div>
+        <div className="absolute -bottom-32 -right-32 w-80 h-80 rounded-full bg-teal-500 blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('/noise.svg')] opacity-30"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
           {/* Left Content - Brand Info */}
           <div className="space-y-4 sm:space-y-6 text-center md:text-left">
             <div className="flex flex-col items-center md:items-start">

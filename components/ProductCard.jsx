@@ -5,7 +5,6 @@ import { assets } from "@/assets/assets";
 
 const ProductCard = ({ product }) => {
   const currency = process.env.NEXT_PUBLIC_CURRENCY;
-  const rating = 4.0;
 
   return (
     <Link href={`/product/${product._id}`}>
@@ -36,57 +35,7 @@ const ProductCard = ({ product }) => {
 
           <div className="flex justify-between items-end mt-auto">
             <div>
-              <div className="flex items-center gap-2 mb-2">
-                <div className="flex">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <div key={star} className="w-4 h-4">
-                      {star <= Math.floor(rating) ? (
-                        <svg
-                          className="w-full h-full text-teal-500"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                      ) : star - 0.5 <= rating ? (
-                        <svg
-                          className="w-full h-full text-teal-500"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <defs>
-                            <linearGradient
-                              id="half-star"
-                              x1="0"
-                              x2="100%"
-                              y1="0"
-                              y2="0"
-                            >
-                              <stop offset="50%" stopColor="currentColor" />
-                              <stop offset="50%" stopColor="#E5E7EB" />
-                            </linearGradient>
-                          </defs>
-                          <path
-                            fill="url(#half-star)"
-                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                          />
-                        </svg>
-                      ) : (
-                        <svg
-                          className="w-full h-full text-stone-300"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                      )}
-                    </div>
-                  ))}
-                </div>
-                <span className="text-xs text-stone-500 font-body">
-                  {rating}
-                </span>
-              </div>
+
 
               <div className="flex items-baseline gap-2">
                 <span className="text-teal-600 font-bold text-lg font-heading">

@@ -26,12 +26,12 @@ const Product = () => {
   }, [id, products]);
 
   return productData ? (
-    <div className="bg-stone-50 min-h-screen animate-fadeIn">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-14 pb-12 sm:pb-20 space-y-8 sm:space-y-16 max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-16">
+    <div className="min-h-screen bg-stone-50 animate-fadeIn">
+      <div className="container px-4 pt-8 pb-12 mx-auto space-y-8 max-w-7xl sm:px-6 lg:px-8 sm:pt-14 sm:pb-20 sm:space-y-16">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 sm:gap-8 lg:gap-16">
           {/* Product Images */}
           <div className="px-2 sm:px-4 lg:px-8">
-            <div className="rounded-xl overflow-hidden bg-white border border-stone-200 p-3 sm:p-6 mb-4 sm:mb-6 shadow-soft hover:shadow-lg transition-all duration-300">
+            <div className="overflow-hidden p-3 mb-4 bg-white rounded-xl border transition-all duration-300 border-stone-200 sm:p-6 sm:mb-6 shadow-soft hover:shadow-lg">
               <Image
                 src={mainImage || productData.image[0]}
                 alt={productData.name}
@@ -56,7 +56,7 @@ const Product = () => {
                   <Image
                     src={image}
                     alt={`${productData.name} - Image ${index + 1}`}
-                    className="w-full h-auto object-contain"
+                    className="object-contain w-full h-auto"
                     width={300}
                     height={300}
                   />
@@ -67,46 +67,15 @@ const Product = () => {
 
           {/* Product Details */}
           <div className="flex flex-col px-2 sm:px-4">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-stone-900 mb-3 sm:mb-4 tracking-tight">
+            <h1 className="mb-3 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl font-heading text-stone-900 sm:mb-4">
               {productData.name}
             </h1>
-
-            <div className="flex items-center gap-2 mb-3 sm:mb-4">
-              <div className="flex items-center gap-0.5 text-teal-500">
-                <Image
-                  className="h-4 w-4 sm:h-5 sm:w-5"
-                  src={assets.star_icon}
-                  alt="star_icon"
-                />
-                <Image
-                  className="h-4 w-4 sm:h-5 sm:w-5"
-                  src={assets.star_icon}
-                  alt="star_icon"
-                />
-                <Image
-                  className="h-4 w-4 sm:h-5 sm:w-5"
-                  src={assets.star_icon}
-                  alt="star_icon"
-                />
-                <Image
-                  className="h-4 w-4 sm:h-5 sm:w-5"
-                  src={assets.star_icon}
-                  alt="star_icon"
-                />
-                <Image
-                  className="h-4 w-4 sm:h-5 sm:w-5"
-                  src={assets.star_dull_icon}
-                  alt="star_dull_icon"
-                />
-              </div>
-              <p className="text-xs sm:text-sm font-medium text-stone-500">(4.0)</p>
-            </div>
-
-            <div className="flex flex-wrap items-baseline gap-2 sm:gap-3 mb-4 sm:mb-6">
-              <span className="text-2xl sm:text-3xl font-bold text-teal-600">
+            
+            <div className="flex flex-wrap gap-2 items-baseline mb-4 sm:gap-3 sm:mb-6">
+              <span className="text-2xl font-bold text-teal-600 sm:text-3xl">
                 ₹{productData.offerPrice}
               </span>
-              <span className="text-base sm:text-lg text-stone-500 line-through">
+              <span className="text-base line-through sm:text-lg text-stone-500">
                 ₹{productData.price}
               </span>
               <span className="text-xs sm:text-sm font-medium bg-teal-100 text-teal-800 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
@@ -119,26 +88,26 @@ const Product = () => {
               </span>
             </div>
 
-            <div className="mb-4 sm:mb-6 bg-white p-4 sm:p-6 rounded-xl border border-stone-200 shadow-soft">
-              <h3 className="text-lg sm:text-xl font-bold text-stone-800 mb-2 sm:mb-3 tracking-tight">
+            <div className="p-4 mb-4 bg-white rounded-xl border sm:mb-6 sm:p-6 border-stone-200 shadow-soft">
+              <h3 className="mb-2 text-lg font-bold tracking-tight sm:text-xl text-stone-800 sm:mb-3">
                 Description
               </h3>
-              <p className="text-sm sm:text-base text-stone-700 leading-relaxed font-body text-balance">
+              <p className="text-sm leading-relaxed sm:text-base text-stone-700 font-body text-balance">
                 {productData.description}
               </p>
             </div>
 
-            <div className="border-t border-b border-stone-200 py-4 sm:py-6 my-4 sm:my-6">
-              <table className="table-auto border-collapse w-full">
+            <div className="py-4 my-4 border-t border-b border-stone-200 sm:py-6 sm:my-6">
+              <table className="w-full border-collapse table-auto">
                 <tbody className="divide-y divide-stone-100">
                   <tr className="py-2">
-                    <td className="py-2 sm:py-3 text-stone-600 font-medium text-xs sm:text-sm tracking-wide">
+                    <td className="py-2 text-xs font-medium tracking-wide sm:py-3 text-stone-600 sm:text-sm">
                       BRAND
                     </td>
-                    <td className="py-2 sm:py-3 text-stone-800 font-body text-sm sm:text-base">SearchBag</td>
+                    <td className="py-2 text-sm sm:py-3 text-stone-800 font-body sm:text-base">SearchBag</td>
                   </tr>
                   <tr className="py-2">
-                    <td className="py-2 sm:py-3 text-stone-600 font-medium text-xs sm:text-sm tracking-wide">
+                    <td className="py-2 text-xs font-medium tracking-wide sm:py-3 text-stone-600 sm:text-sm">
                       CATEGORY
                     </td>
                     <td className="py-2 sm:py-3">
@@ -164,7 +133,7 @@ const Product = () => {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 sm:h-5 sm:w-5"
+                className="w-4 h-4 sm:h-5 sm:w-5"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -178,13 +147,13 @@ const Product = () => {
         {/* Related Products */}
         <div className="flex flex-col items-center mt-8 sm:mt-16">
           <div className="flex flex-col items-center mb-6 sm:mb-10">
-            <h2 className="text-2xl sm:text-3xl font-heading font-bold text-stone-900 tracking-tight text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-center sm:text-3xl font-heading text-stone-900">
               You May Also Like
             </h2>
             <div className="w-24 sm:w-32 h-0.5 bg-teal-500 mt-2"></div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-6 mt-6 sm:mt-8 w-full">
+          <div className="grid grid-cols-2 gap-3 mt-6 w-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 sm:gap-6 sm:mt-8">
             {products
               .filter(
                 (p) => p._id !== id && p.category === productData.category
