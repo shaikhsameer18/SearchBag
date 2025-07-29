@@ -51,13 +51,14 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-stone-50">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-teal-900 to-teal-700 py-24">
-        <div className="container mx-auto px-6 relative">
+      <div className="relative bg-gradient-to-r from-teal-900 to-teal-700 py-16 sm:py-20 md:py-24">
+        {/* <div className="absolute inset-0 bg-[url('/images/texture.png')] opacity-10"></div> */}
+        <div className="container mx-auto px-4 sm:px-6 relative">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
-              Contact Us
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white mb-4 sm:mb-6">
+              CONTACT US
             </h1>
-            <p className="text-lg font-body text-stone-200 leading-relaxed">
+            <p className="text-base sm:text-lg font-body text-stone-200 leading-relaxed px-2">
               Have questions about our products? We're here to help and answer
               any questions you might have.
             </p>
@@ -66,21 +67,21 @@ const ContactPage = () => {
       </div>
 
       {/* Content Section */}
-      <div className="py-20 px-6">
+      <div className="py-12 sm:py-16 md:py-20 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-12">
+          <div className="flex flex-col lg:flex-row gap-8 sm:gap-10 lg:gap-12">
             {/* Contact Form */}
             <div className="lg:w-1/2">
-              <div className="bg-white p-8 rounded-xl shadow-soft">
-                <h2 className="text-2xl font-heading font-bold text-stone-900 mb-6">
+              <div className="bg-white p-6 sm:p-8 rounded-xl shadow-soft">
+                <h2 className="text-xl sm:text-2xl font-heading font-bold text-stone-900 mb-4 sm:mb-6">
                   Send Us a Message
                 </h2>
-                <div className="w-16 h-1 bg-teal-600 mb-8"></div>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="w-12 sm:w-16 h-1 bg-teal-600 mb-6 sm:mb-8"></div>
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium text-stone-700 mb-2"
+                      className="block text-sm font-medium text-stone-700 mb-1 sm:mb-2"
                     >
                       Your Name
                     </label>
@@ -90,7 +91,7 @@ const ContactPage = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-300 font-body"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-300 font-body"
                       required
                     />
                   </div>
@@ -98,7 +99,7 @@ const ContactPage = () => {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-stone-700 mb-2"
+                      className="block text-sm font-medium text-stone-700 mb-1 sm:mb-2"
                     >
                       Email Address
                     </label>
@@ -108,7 +109,7 @@ const ContactPage = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-300 font-body"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-300 font-body"
                       required
                     />
                   </div>
@@ -116,7 +117,7 @@ const ContactPage = () => {
                   <div>
                     <label
                       htmlFor="subject"
-                      className="block text-sm font-medium text-stone-700 mb-2"
+                      className="block text-sm font-medium text-stone-700 mb-1 sm:mb-2"
                     >
                       Subject
                     </label>
@@ -126,7 +127,7 @@ const ContactPage = () => {
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-300 font-body"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-300 font-body"
                       required
                     />
                   </div>
@@ -134,7 +135,7 @@ const ContactPage = () => {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium text-stone-700 mb-2"
+                      className="block text-sm font-medium text-stone-700 mb-1 sm:mb-2"
                     >
                       Message
                     </label>
@@ -144,7 +145,7 @@ const ContactPage = () => {
                       value={formData.message}
                       onChange={handleChange}
                       rows={5}
-                      className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-300 font-body"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-300 font-body"
                       required
                     ></textarea>
                   </div>
@@ -152,7 +153,7 @@ const ContactPage = () => {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className={`w-full py-3 px-6 bg-teal-600 text-white font-medium rounded-lg hover:bg-teal-700 transition-all duration-300 shadow-soft hover:shadow-hover ${
+                    className={`w-full py-2.5 sm:py-3 px-4 sm:px-6 bg-teal-600 text-white font-medium rounded-lg hover:bg-teal-700 transition-all duration-300 shadow-soft hover:shadow-hover text-sm sm:text-base ${
                       isLoading ? "opacity-70 cursor-not-allowed" : ""
                     }`}
                   >
@@ -160,7 +161,7 @@ const ContactPage = () => {
                   </button>
 
                   {isSubmitted && (
-                    <div className="mt-4 p-4 bg-teal-50 text-teal-700 rounded-lg border-l-4 border-teal-600">
+                    <div className="mt-3 sm:mt-4 p-3 sm:p-4 bg-teal-50 text-teal-700 rounded-lg border-l-4 border-teal-600 text-sm sm:text-base">
                       Thank you for your message! We'll get back to you soon.
                     </div>
                   )}
@@ -170,17 +171,17 @@ const ContactPage = () => {
 
             {/* Contact Info */}
             <div className="lg:w-1/2">
-              <div className="bg-white p-8 rounded-xl shadow-soft mb-8">
-                <h2 className="text-2xl font-heading font-bold text-stone-900 mb-6">
+              <div className="bg-white p-6 sm:p-8 rounded-xl shadow-soft mb-6 sm:mb-8">
+                <h2 className="text-xl sm:text-2xl font-heading font-bold text-stone-900 mb-4 sm:mb-6">
                   Our Store
                 </h2>
-                <div className="w-16 h-1 bg-teal-600 mb-8"></div>
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-teal-50 p-3 rounded-lg">
+                <div className="w-12 sm:w-16 h-1 bg-teal-600 mb-6 sm:mb-8"></div>
+                <div className="space-y-5 sm:space-y-6">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="bg-teal-50 p-2.5 sm:p-3 rounded-lg">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6 text-teal-600"
+                        className="h-5 w-5 sm:h-6 sm:w-6 text-teal-600"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -200,23 +201,23 @@ const ContactPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-heading font-semibold text-stone-900">
+                      <h3 className="text-base sm:text-lg font-heading font-semibold text-stone-900 mb-0.5 sm:mb-1">
                         Address
                       </h3>
-                      <p className="text-stone-600 font-body">
+                      <p className="text-sm sm:text-base text-stone-600 font-body">
                         Shop No. 27, Lohe Ki Chawl, Mumbai Bag Market
                       </p>
-                      <p className="text-stone-600 font-body">
+                      <p className="text-sm sm:text-base text-stone-600 font-body">
                         Maulana Azad Road, Madanpura, Mumbai-8
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="bg-teal-50 p-3 rounded-lg">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="bg-teal-50 p-2.5 sm:p-3 rounded-lg">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6 text-teal-600"
+                        className="h-5 w-5 sm:h-6 sm:w-6 text-teal-600"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -230,20 +231,20 @@ const ContactPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-heading font-semibold text-stone-900">
+                      <h3 className="text-base sm:text-lg font-heading font-semibold text-stone-900 mb-0.5 sm:mb-1">
                         Phone
                       </h3>
-                      <p className="text-stone-600 font-body">
+                      <p className="text-sm sm:text-base text-stone-600 font-body">
                         +91 88280 81163
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="bg-teal-50 p-3 rounded-lg">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="bg-teal-50 p-2.5 sm:p-3 rounded-lg">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6 text-teal-600"
+                        className="h-5 w-5 sm:h-6 sm:w-6 text-teal-600"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -257,10 +258,10 @@ const ContactPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-heading font-semibold text-stone-900">
+                      <h3 className="text-base sm:text-lg font-heading font-semibold text-stone-900 mb-0.5 sm:mb-1">
                         Email
                       </h3>
-                      <p className="text-stone-600 font-body">
+                      <p className="text-sm sm:text-base text-stone-600 font-body">
                         searchbags789@gmail.com
                       </p>
                     </div>
@@ -268,33 +269,33 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              <div className="bg-white p-8 rounded-xl shadow-soft">
-                <h2 className="text-2xl font-heading font-bold text-stone-900 mb-6">
+              <div className="bg-white p-6 sm:p-8 rounded-xl shadow-soft">
+                <h2 className="text-xl sm:text-2xl font-heading font-bold text-stone-900 mb-4 sm:mb-6">
                   Business Hours
                 </h2>
-                <div className="w-16 h-1 bg-teal-600 mb-8"></div>
-                <ul className="space-y-4">
-                  <li className="flex justify-between pb-3 border-b border-stone-100">
-                    <span className="text-stone-600 font-body font-medium">
+                <div className="w-12 sm:w-16 h-1 bg-teal-600 mb-6 sm:mb-8"></div>
+                <ul className="space-y-3 sm:space-y-4">
+                  <li className="flex justify-between pb-2 sm:pb-3 border-b border-stone-100">
+                    <span className="text-sm sm:text-base text-stone-600 font-body font-medium">
                       Monday - Friday
                     </span>
-                    <span className="font-semibold font-body text-stone-900">
+                    <span className="text-sm sm:text-base font-semibold font-body text-stone-900">
                       10:00 AM - 7:00 PM
                     </span>
                   </li>
-                  <li className="flex justify-between pb-3 border-b border-stone-100">
-                    <span className="text-stone-600 font-body font-medium">
+                  <li className="flex justify-between pb-2 sm:pb-3 border-b border-stone-100">
+                    <span className="text-sm sm:text-base text-stone-600 font-body font-medium">
                       Saturday
                     </span>
-                    <span className="font-semibold font-body text-stone-900">
+                    <span className="text-sm sm:text-base font-semibold font-body text-stone-900">
                       10:00 AM - 5:00 PM
                     </span>
                   </li>
                   <li className="flex justify-between">
-                    <span className="text-stone-600 font-body font-medium">
+                    <span className="text-sm sm:text-base text-stone-600 font-body font-medium">
                       Sunday
                     </span>
-                    <span className="font-semibold font-body text-stone-900">
+                    <span className="text-sm sm:text-base font-semibold font-body text-stone-900">
                       Closed
                     </span>
                   </li>

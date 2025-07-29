@@ -27,27 +27,27 @@ const Product = () => {
 
   return productData ? (
     <div className="bg-stone-50 min-h-screen animate-fadeIn">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-20 space-y-16 max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-14 pb-12 sm:pb-20 space-y-8 sm:space-y-16 max-w-7xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-16">
           {/* Product Images */}
-          <div className="px-4 lg:px-8">
-            <div className="rounded-xl overflow-hidden bg-white border border-stone-200 p-6 mb-6 shadow-soft hover:shadow-lg transition-all duration-300">
+          <div className="px-2 sm:px-4 lg:px-8">
+            <div className="rounded-xl overflow-hidden bg-white border border-stone-200 p-3 sm:p-6 mb-4 sm:mb-6 shadow-soft hover:shadow-lg transition-all duration-300">
               <Image
                 src={mainImage || productData.image[0]}
                 alt={productData.name}
-                className="w-full h-auto object-contain max-h-[400px]"
+                className="w-full h-auto object-contain max-h-[250px] sm:max-h-[350px] md:max-h-[400px]"
                 width={1280}
                 height={720}
                 priority
               />
             </div>
 
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-4 gap-2 sm:gap-4">
               {productData.image.map((image, index) => (
                 <div
                   key={index}
                   onClick={() => setMainImage(image)}
-                  className={`cursor-pointer rounded-lg overflow-hidden bg-white border p-2 transition-all ${
+                  className={`cursor-pointer rounded-lg overflow-hidden bg-white border p-1 sm:p-2 transition-all ${
                     mainImage === image
                       ? "border-teal-500 shadow-md scale-105"
                       : "border-stone-200 hover:border-teal-300"
@@ -66,50 +66,50 @@ const Product = () => {
           </div>
 
           {/* Product Details */}
-          <div className="flex flex-col px-4">
-            <h1 className="text-3xl md:text-4xl font-heading font-bold text-stone-900 mb-4 tracking-tight">
+          <div className="flex flex-col px-2 sm:px-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-stone-900 mb-3 sm:mb-4 tracking-tight">
               {productData.name}
             </h1>
 
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2 mb-3 sm:mb-4">
               <div className="flex items-center gap-0.5 text-teal-500">
                 <Image
-                  className="h-5 w-5"
+                  className="h-4 w-4 sm:h-5 sm:w-5"
                   src={assets.star_icon}
                   alt="star_icon"
                 />
                 <Image
-                  className="h-5 w-5"
+                  className="h-4 w-4 sm:h-5 sm:w-5"
                   src={assets.star_icon}
                   alt="star_icon"
                 />
                 <Image
-                  className="h-5 w-5"
+                  className="h-4 w-4 sm:h-5 sm:w-5"
                   src={assets.star_icon}
                   alt="star_icon"
                 />
                 <Image
-                  className="h-5 w-5"
+                  className="h-4 w-4 sm:h-5 sm:w-5"
                   src={assets.star_icon}
                   alt="star_icon"
                 />
                 <Image
-                  className="h-5 w-5"
+                  className="h-4 w-4 sm:h-5 sm:w-5"
                   src={assets.star_dull_icon}
                   alt="star_dull_icon"
                 />
               </div>
-              <p className="text-sm font-medium text-stone-500">(4.0)</p>
+              <p className="text-xs sm:text-sm font-medium text-stone-500">(4.0)</p>
             </div>
 
-            <div className="flex items-baseline gap-3 mb-6">
-              <span className="text-3xl font-bold text-teal-600">
+            <div className="flex flex-wrap items-baseline gap-2 sm:gap-3 mb-4 sm:mb-6">
+              <span className="text-2xl sm:text-3xl font-bold text-teal-600">
                 ₹{productData.offerPrice}
               </span>
-              <span className="text-lg text-stone-500 line-through">
+              <span className="text-base sm:text-lg text-stone-500 line-through">
                 ₹{productData.price}
               </span>
-              <span className="text-sm font-medium bg-teal-100 text-teal-800 px-2.5 py-1 rounded-full">
+              <span className="text-xs sm:text-sm font-medium bg-teal-100 text-teal-800 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
                 {Math.round(
                   ((productData.price - productData.offerPrice) /
                     productData.price) *
@@ -119,30 +119,30 @@ const Product = () => {
               </span>
             </div>
 
-            <div className="mb-6 bg-white p-6 rounded-xl border border-stone-200 shadow-soft">
-              <h3 className="text-xl font-bold text-stone-800 mb-3 tracking-tight">
+            <div className="mb-4 sm:mb-6 bg-white p-4 sm:p-6 rounded-xl border border-stone-200 shadow-soft">
+              <h3 className="text-lg sm:text-xl font-bold text-stone-800 mb-2 sm:mb-3 tracking-tight">
                 Description
               </h3>
-              <p className="text-stone-700 leading-relaxed font-body text-balance">
+              <p className="text-sm sm:text-base text-stone-700 leading-relaxed font-body text-balance">
                 {productData.description}
               </p>
             </div>
 
-            <div className="border-t border-b border-stone-200 py-6 my-6">
+            <div className="border-t border-b border-stone-200 py-4 sm:py-6 my-4 sm:my-6">
               <table className="table-auto border-collapse w-full">
                 <tbody className="divide-y divide-stone-100">
                   <tr className="py-2">
-                    <td className="py-3 text-stone-600 font-medium text-sm tracking-wide">
+                    <td className="py-2 sm:py-3 text-stone-600 font-medium text-xs sm:text-sm tracking-wide">
                       BRAND
                     </td>
-                    <td className="py-3 text-stone-800 font-body">SearchBag</td>
+                    <td className="py-2 sm:py-3 text-stone-800 font-body text-sm sm:text-base">SearchBag</td>
                   </tr>
                   <tr className="py-2">
-                    <td className="py-3 text-stone-600 font-medium text-sm tracking-wide">
+                    <td className="py-2 sm:py-3 text-stone-600 font-medium text-xs sm:text-sm tracking-wide">
                       CATEGORY
                     </td>
-                    <td className="py-3">
-                      <span className="bg-teal-100 text-teal-800 text-xs px-2.5 py-1 font-medium rounded-full">
+                    <td className="py-2 sm:py-3">
+                      <span className="bg-teal-100 text-teal-800 text-xs px-2 py-0.5 sm:px-2.5 sm:py-1 font-medium rounded-full">
                         {productData.category}
                       </span>
                     </td>
@@ -154,17 +154,17 @@ const Product = () => {
             <button
               onClick={() => {
                 const message = `Hi, I'm interested in the ${productData.name}. Could you provide more information about it?`;
-                const phoneNumber = "+918828081163";
+                const phoneNumber = productData.whatsappNumber || "+918828081163";
                 const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
                   message
                 )}`;
                 window.open(whatsappUrl, "_blank");
               }}
-              className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-700 hover:to-teal-600 text-white py-4 px-6 rounded-xl transition duration-300 shadow-md hover:shadow-lg text-lg font-medium mt-4 transform hover:scale-[1.02]"
+              className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-700 hover:to-teal-600 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-xl transition duration-300 shadow-md hover:shadow-lg text-base sm:text-lg font-medium mt-4 transform hover:scale-[1.02]"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-4 w-4 sm:h-5 sm:w-5"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -176,15 +176,15 @@ const Product = () => {
         </div>
 
         {/* Related Products */}
-        <div className="flex flex-col items-center mt-16">
-          <div className="flex flex-col items-center mb-10">
-            <h2 className="text-3xl font-heading font-bold text-stone-900 tracking-tight">
+        <div className="flex flex-col items-center mt-8 sm:mt-16">
+          <div className="flex flex-col items-center mb-6 sm:mb-10">
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold text-stone-900 tracking-tight text-center">
               You May Also Like
             </h2>
-            <div className="w-32 h-0.5 bg-teal-500 mt-2"></div>
+            <div className="w-24 sm:w-32 h-0.5 bg-teal-500 mt-2"></div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-8 w-full">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-6 mt-6 sm:mt-8 w-full">
             {products
               .filter(
                 (p) => p._id !== id && p.category === productData.category
@@ -197,7 +197,7 @@ const Product = () => {
 
           <button
             onClick={() => router.push("/all-products")}
-            className="mt-12 px-8 py-3 border-2 border-teal-500 text-teal-600 hover:bg-teal-500 hover:text-white transition duration-300 text-sm font-medium rounded-lg shadow-soft hover:shadow-md"
+            className="mt-8 sm:mt-12 px-6 sm:px-8 py-2.5 sm:py-3 border-2 border-teal-500 text-teal-600 hover:bg-teal-500 hover:text-white transition duration-300 text-xs sm:text-sm font-medium rounded-lg shadow-soft hover:shadow-md"
           >
             View All Products
           </button>

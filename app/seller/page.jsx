@@ -37,22 +37,37 @@ const AddProduct = () => {
 
   const fetchProductData = async (id) => {
     try {
-      const { data } = await axios.get("/api/product/list");
+      const token = await getToken();
+      const { data } = await axios.get(`/api/product/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      
       if (data.success) {
-        const product = data.products.find((p) => p._id === id);
-        if (product) {
-          setName(product.name);
-          setDescription(product.description);
-          setCategory(product.category);
-          setPrice(product.price);
-          setOfferPrice(product.offerPrice);
-          setWhatsappNumber(product.whatsappNumber);
-          setColors(product.colors || []);
-          setPreviewImages(product.image);
-        }
+        const product = data.product;
+        setName(product.name || "");
+        setDescription(product.description || "");
+        setCategory(product.category || "Casual Bags");
+        setPrice(product.price || "");
+        setOfferPrice(product.offerPrice || "");
+        setWhatsappNumber(product.whatsappNumber || "+918828081163");
+        setColors(product.colors || []);
+        setPreviewImages(product.image || []);
+      } else {
+        toast.error(data.message || "Failed to fetch product data");
       }
     } catch (error) {
-      toast.error("Error fetching product data");
+      console.error("Error fetching product data:", error);
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        toast.error(`Error: ${error.response.data?.message || error.response.statusText || 'Failed to fetch product data'}`);
+      } else if (error.request) {
+        // The request was made but no response was received
+        toast.error('Network error: No response received from server');
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        toast.error(`Error: ${error.message || 'Unknown error occurred'}`);
+      }
     }
   };
 
@@ -294,66 +309,6 @@ const AddProduct = () => {
               />
             </div>
 
-            {/* Colors */}
-            <div>
-              <label className="block text-sm font-medium text-stone-700 mb-1 font-body">
-                Available Colors
-              </label>
-              <div className="flex items-center space-x-2">
-                <input
-                  type="text"
-                  value={colorInput}
-                  onChange={(e) => setColorInput(e.target.value)}
-                  className="flex-1 px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 font-body"
-                  placeholder="Add a color"
-                />
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (colorInput.trim()) {
-                      setColors([...colors, colorInput.trim()]);
-                      setColorInput("");
-                    }
-                  }}
-                  className="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors shadow-soft hover:shadow-hover font-body"
-                >
-                  Add
-                </button>
-              </div>
-              <div className="mt-2 flex flex-wrap gap-2">
-                {colors.map((color, index) => (
-                  <span
-                    key={index}
-                    className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-teal-100 text-teal-800 font-body"
-                  >
-                    {color}
-                    <button
-                      type="button"
-                      onClick={() => {
-                        const newColors = [...colors];
-                        newColors.splice(index, 1);
-                        setColors(newColors);
-                      }}
-                      className="ml-2 text-teal-600 hover:text-teal-900 focus:outline-none"
-                    >
-                      <svg
-                        className="h-4 w-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
-                    </button>
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* Product Images */}

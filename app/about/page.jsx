@@ -88,14 +88,14 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-stone-50">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-teal-900 to-teal-700 py-28">
-        <div className="absolute inset-0 bg-[url('/images/texture.png')] opacity-10"></div>
-        <div className="container mx-auto px-6 relative">
+      <div className="relative bg-gradient-to-r from-teal-900 to-teal-700 py-16 sm:py-20 md:py-28">
+        {/* <div className="absolute inset-0 bg-[url('/images/texture.png')] opacity-10"></div> */}
+        <div className="container mx-auto px-4 sm:px-6 relative">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white mb-4 sm:mb-6">
               ABOUT SEARCH BAG
             </h1>
-            <p className="text-lg font-body text-stone-200 leading-relaxed">
+            <p className="text-base sm:text-lg font-body text-stone-200 leading-relaxed px-2">
               Established in 2007 in Mumbai, we are a premier manufacturer and
               wholesaler of high-quality bags.
             </p>
@@ -104,31 +104,28 @@ const AboutPage = () => {
       </div>
 
       {/* Mission Section */}
-      <div className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col lg:flex-row gap-12 items-center">
-            <div className="lg:w-1/2">
-              {/* <div className="relative aspect-square rounded-xl overflow-hidden shadow-soft">
-                <Image
-                  src="/images/about-bag.jpg"
-                  alt="Search Bag Products"
-                  fill
-                  className="object-cover"
-                />
-              </div> */}
-            </div>
-            <div className="lg:w-1/2">
-              <h2 className="text-3xl font-heading font-bold text-stone-900 mb-6">
+      <div className="py-12 sm:py-16 md:py-20">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="flex flex-col lg:flex-row gap-8 sm:gap-12 items-center">
+            {/* <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
+              <img
+                src="/images/about-mission.jpg"
+                alt="Our Mission"
+                className="rounded-xl shadow-soft w-full h-auto"
+              />
+            </div> */}
+            <div className="w-full lg:w-1/2">
+              <h2 className="text-2xl sm:text-3xl font-heading font-bold text-stone-900 mb-4 sm:mb-6">
                 OUR MISSION
               </h2>
-              <div className="w-20 h-1 bg-teal-600 mb-8"></div>
-              <p className="text-stone-600 font-body mb-6 leading-relaxed">
+              <div className="w-16 sm:w-20 h-1 bg-teal-600 mb-6 sm:mb-8"></div>
+              <p className="text-sm sm:text-base text-stone-600 font-body mb-4 sm:mb-6 leading-relaxed">
                 At Search Bag, our mission is to offer high-quality, stylish,
                 and durable bags that meet the diverse needs of our customers.
                 We are committed to delivering innovative products at affordable
                 prices, ensuring that everyone can enjoy premium value.
               </p>
-              <p className="text-stone-600 font-body leading-relaxed">
+              <p className="text-sm sm:text-base text-stone-600 font-body leading-relaxed">
                 With a strong focus on customer satisfaction and timely service,
                 we aim to build lasting relationships and become a trusted brand
                 in every customer's journey.
@@ -139,30 +136,30 @@ const AboutPage = () => {
       </div>
 
       {/* Core Values */}
-      <div className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-heading font-bold text-stone-900 mb-4">
+      <div className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold text-stone-900 mb-4">
               WHY CHOOSE US
             </h2>
-            <div className="w-20 h-1 bg-teal-600 mx-auto mb-8"></div>
-            <p className="text-stone-600 font-body">
+            <div className="w-20 h-1 bg-teal-600 mx-auto mb-6 sm:mb-8"></div>
+            <p className="text-stone-600 font-body text-sm sm:text-base">
               What makes Search Bag stand out from the competition
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {coreValues.map((value, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-xl shadow-soft hover:shadow-hover transition-all duration-300"
+                className="bg-white p-6 sm:p-8 rounded-xl shadow-soft hover:shadow-hover transition-all duration-300"
               >
-                <div className="bg-teal-50 w-12 h-12 rounded-full flex items-center justify-center mb-6">
+                <div className="bg-teal-50 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-4 sm:mb-6">
                   {value.icon}
                 </div>
-                <h3 className="text-lg font-heading font-semibold text-stone-900 mb-3">
+                <h3 className="text-base sm:text-lg font-heading font-semibold text-stone-900 mb-2 sm:mb-3">
                   {value.title}
                 </h3>
-                <p className="text-stone-500 font-body text-sm">
+                <p className="text-stone-500 font-body text-xs sm:text-sm">
                   {value.description}
                 </p>
               </div>
@@ -172,14 +169,14 @@ const AboutPage = () => {
       </div>
 
       {/* History Section */}
-      <div className="py-20">
-        <div className="container mx-auto px-6">
+      <div className="py-12 sm:py-16 md:py-20">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-heading font-bold text-stone-900 mb-6 text-center">
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold text-stone-900 mb-4 sm:mb-6 text-center">
               OUR STORY
             </h2>
-            <div className="w-20 h-1 bg-teal-600 mx-auto mb-12"></div>
-            <div className="text-stone-600 font-body space-y-6">
+            <div className="w-16 sm:w-20 h-1 bg-teal-600 mx-auto mb-8 sm:mb-12"></div>
+            <div className="text-sm sm:text-base text-stone-600 font-body space-y-4 sm:space-y-6">
               <p>
                 Established in the year 2007 at Mumbai, Maharashtra, we "Search
                 Bag" are a Sole Proprietorship based firm, engaged as the

@@ -1,7 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { assets } from "@/assets/assets";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+
+// Add image preloading function
+const preloadImages = (imageSources) => {
+  imageSources.forEach((src) => {
+    const img = new Image();
+    img.src = src;
+  });
+};
 
 const HeaderSlider = () => {
   const router = useRouter();

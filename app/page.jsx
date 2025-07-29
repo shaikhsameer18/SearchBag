@@ -1,17 +1,28 @@
 "use client";
-import React from "react";
+import React, { Suspense } from "react";
+import dynamic from "next/dynamic";
 import HeaderSlider from "@/components/HeaderSlider";
-import HomeProducts from "@/components/HomeProducts";
-import Banner from "@/components/Banner";
-import FeaturedProduct from "@/components/FeaturedProduct";
+
+// Dynamically import components that are below the fold
+const HomeProducts = dynamic(() => import("@/components/HomeProducts"), {
+  loading: () => <div className="h-96 w-full animate-pulse bg-gray-200 rounded-xl mt-8"></div>,
+});
+
+const Banner = dynamic(() => import("@/components/Banner"), {
+  loading: () => <div className="h-64 w-full animate-pulse bg-gray-200 rounded-xl mt-8"></div>,
+});
 
 const Home = () => {
   return (
-    <div className="px-4 sm:px-6 md:px-8 lg:px-12 py-6 bg-transparent">
-      <div className="space-y-5 md:space-y-12">
+    <div className="min-h-screen bg-stone-50">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         <HeaderSlider />
-        <HomeProducts />
-        <Banner />
+        <Suspense fallback={<div className="h-96 w-full animate-pulse bg-gray-200 rounded-xl mt-8"></div>}>
+          <HomeProducts />
+        </Suspense>
+        <Suspense fallback={<div className="h-64 w-full animate-pulse bg-gray-200 rounded-xl mt-8"></div>}>
+          <Banner />
+        </Suspense>
       </div>
     </div>
   );
